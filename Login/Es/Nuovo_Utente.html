@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Accessi JSP Carozzi</title>
+  <link rel="stylesheet" href="./Stile.css">
+ </head>
+ <body onload="OnChange()">
+  <script>
+   function OnChange()
+   {
+    var n=0;
+	if(document.form1.utente.value!="")
+	 n++;
+	if(document.form1.password.value!="")
+	 n++;
+	if(n!=2)
+	 document.form1.submit.disabled=true;
+	else
+	 document.form1.submit.disabled=false;
+   };
+  </script>
+  <form name="form1" action="SaveDataServlet" method="post">
+   <p>Nome Utente</p>
+   <p><input style="width:350px" type="text" name="utente" onchange="OnChange()" value=""><br></p>
+   <p>Password</p>
+   <p><input style="width:350px" type="password" onchange="OnChange()" name="password" value=""><br></p>
+   <p><input class="submit" type="submit" value="Conferma" name="submit"></p>
+  </form>
+ </body>
+</html>
